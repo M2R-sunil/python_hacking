@@ -12,4 +12,13 @@ def get_arguments():
 def change_mac(interface, new_mac):
     print("[+] changing mac address for " + interface + " to " + new_mac)
     subprocess.call(["ifconfig", interface, "down"])
-    subprocess.call()
+    subprocess.call(["ifconfig", interface, "hw", "ether", new_mac])
+
+    subprocess.call(["ifconfig", interface, "up"])
+
+(options, arguments) = get_arguments()
+change_mac(options.interface, options.new_mac)
+
+# -i eth0 -m 33:88:88:66:66:88
+# this code is working return values in the functions
+
