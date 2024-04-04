@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+
+import scapy.all as scapy
+from scapy.layers import http ## this is a import scapy layers and import http request
+## install the scapy http terminal pip install scapy_http
+
+def sniff(interface):
+    scapy.sniff(iface=interface, store=False, prn=process_packet_sniff)  ## use for filter="udp" this filter using udp tcp arp ports and others cool staps.
+
+def process_packet_sniff(packet):
+    if packet.haslayer(http.HTTPRequest):
+        print(packet)
+
+sniff("eth0")
