@@ -5,8 +5,8 @@ from scapy.layers import http
 
 def sniff(interface):
     scapy.sniff(iface=interface,store=False,prn=process_sniff_packet) 
- def get_url(packet): ## this is refactoring this code.
-     packet.[http.HTTPRequest].Host + packet.[http.HTTPRequest].Path 
+def get_url(packet): ## this is refactoring this code.
+     return packet[http.HTTPRequest].Host + packet[http.HTTPRequest].Path 
  def get_login_info(packet):
      if packet.haslayer(scapy.Raw): 
            load = packet[scapy.Raw].load 
