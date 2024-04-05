@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import scapy.ass as scapy
+import scapy.all as scapy
 from scapy.layers import http
 
 def sniff(interface):
