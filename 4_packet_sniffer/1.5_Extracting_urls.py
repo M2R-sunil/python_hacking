@@ -9,7 +9,7 @@ def sniff(interface):
 def process_sniff_packet(packet):
     if packet.haslayer(http.HTTPRequest): ## open the images for testing this program.
          ##print(packet show()) ## this is a print the all packets. for intresting you
-         url = packet.[http.HTTPRequest].Host + packet.[http.HTTPRequest].Path ## this append host and path
+         url = packet[http.HTTPRequest].Host + packet[http.HTTPRequest].Path ## this append host and path
          print(url)
         if packet.haslayer(scapy.Raw): 
            load = packet[scapy.Raw].load 
