@@ -3,9 +3,9 @@
 import subprocess
 import optparse # this is a str library of python parse the arguments of the user.
 
-parser = parser.Option.Parser() # Option.Parser this is hold the all values for user give. #parser is a another verable.
-parser.add_option("-i", "--interface", dest="interface", help="this is showing interface")
-parser.add_args()
+parser = optparse.OptionParser()
+parser.add_option("-i", "--interface", dest="interface", help="this is interface")
+parser.parse_args()
 
 
 interface = raw_input("interface >") # input function get the input for user
