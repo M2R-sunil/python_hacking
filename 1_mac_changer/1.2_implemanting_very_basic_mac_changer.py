@@ -3,7 +3,7 @@
 import subprocess
 
 subprocess.call("ifconfig eth0 down", shell=True) # subprocess.call running the system coomands. and shell=True helping the running shell coomands.
-subprocess.call("ifconfig hw ether 00:11:22:33:44:55", shell=True) 
+subprocess.call("ifconfig eth0 hw ether 00:11:22:33:44:55", shell=True) 
 subprocess.call("ifconfig eth0 up", shell=True) 
 
 # this is a very simple program to running system coomands.
