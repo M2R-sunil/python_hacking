@@ -11,7 +11,7 @@ def change_mac(interface, new_mac): ## creating change_mac function. interface a
 parser = optparse.Option.Parser()
 parser.add_option("-i", "--interface", dest="interface", help="this is showing interface")
 parser.add_option("-m", "--mac", dest="new_mac", help="this is showing interface")
-(options, arguments) = parser.add_args() 
+(options, arguments) = parser.parse_args() 
 
 #interface = options.interface # no need of the this two lines because the using function. and use the change_mac function.
 #new_mac = options.new_mac 
