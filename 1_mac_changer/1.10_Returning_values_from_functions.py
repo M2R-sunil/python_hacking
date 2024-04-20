@@ -3,7 +3,7 @@
 import subprocess
 import optparse 
 def get_arguments(): # this function capture the values in the user.
-    parser = parser.Option.Parser() 
+    parser = optparse.OptionParser() 
     parser.add_option("-i", "--interface", dest="interface", help="this is showing interface")
     parser.add_option("-m", "--mac", dest="new_mac", help="this is showing interface")
     return parser.add_args() 
