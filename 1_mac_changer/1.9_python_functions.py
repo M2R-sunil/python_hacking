@@ -8,7 +8,7 @@ def change_mac(interface, new_mac): ## creating change_mac function. interface a
     subprocess call(["ifconfig", interface, "hw", "ether", "down"])   
     subprocess call(["ifconfig", interface, "up"]) ## this code part of change_mac function.
     
-parser = parser.Option.Parser() 
+parser = optparse.Option.Parser()
 parser.add_option("-i", "--interface", dest="interface", help="this is showing interface")
 parser.add_option("-m", "--mac", dest="new_mac", help="this is showing interface")
 (options, arguments) = parser.add_args() 
